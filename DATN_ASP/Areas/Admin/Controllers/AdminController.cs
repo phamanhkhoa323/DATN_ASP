@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DATN_ASP.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    [Area("Admin")]
+    public class AdminController : Controller
     {
         public IActionResult Index()
         {

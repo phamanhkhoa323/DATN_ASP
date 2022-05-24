@@ -27,6 +27,34 @@ namespace DATN_ASP.Controllers
         {
             return View();
         }
+        [Route("Cart")]
+        public IActionResult Cart()
+        {
+
+            return View();
+        }
+
+        [Route("Checkout")]
+        public IActionResult Checkout()
+        {
+
+            return View();
+        }
+
+
+        [Route("Shop")]
+        public IActionResult Shop()
+        {
+
+            return View();
+        }
+
+        [Route("Single-product")]
+        public IActionResult Single()
+        {
+
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
