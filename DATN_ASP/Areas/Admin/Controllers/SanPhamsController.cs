@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DATN_ASP.Data;
 using DATN_ASP.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DATN_ASP.Areas.Admin.Controllers
 {
@@ -14,11 +16,14 @@ namespace DATN_ASP.Areas.Admin.Controllers
     public class SanPhamsController : Controller
     {
         private readonly DATN_ASPContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public SanPhamsController(DATN_ASPContext context)
+        public SanPhamsController(DATN_ASPContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
+
 
         // GET: Admin/SanPhams
         public async Task<IActionResult> Index()
@@ -70,8 +75,25 @@ namespace DATN_ASP.Areas.Admin.Controllers
             {
                 _context.Add(sanPham);
                 await _context.SaveChangesAsync();
+                if (sanPham.ImageFile != null)
+                {
+                    //Xử lí
+                    var filename = sanPham.Id.ToString() + Path.GetExtension(sanPham.ImageFile.FileName);
+                    var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "image");
+                    var filePath = Path.Combine(uploadPath, filename);
+                    using (FileStream fs = System.IO.File.Create(filePath))
+                    {
+                        sanPham.ImageFile.CopyTo(fs);
+                        fs.Flush();
+                    }
+                    sanPham.AnhDaiDien = filename;
+                    _context.SanPhams.Update(sanPham);
+                    await _context.SaveChangesAsync();
+                }
                 return RedirectToAction(nameof(Index));
+
             }
+
             ViewData["DanhMucId"] = new SelectList(_context.DanhMucs, "Id", "Id", sanPham.DanhMucId);
             ViewData["HinhAnhId"] = new SelectList(_context.HinhAnhs, "Id", "Id", sanPham.HinhAnhId);
             ViewData["KhuyenMaiId"] = new SelectList(_context.KhuyenMais, "Id", "Id", sanPham.KhuyenMaiId);
