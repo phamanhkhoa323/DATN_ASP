@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="description"
@@ -179,7 +180,9 @@
             </li>
         </ul>
     </header>
-    @RenderBody()
+    <main class="app-content">
+        @RenderBody()
+    </main>
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
         <div class="app-sidebar__user">
@@ -216,10 +219,10 @@
                         <a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a>
                     </li>
                     <li>
-                        <a class="treeview-item" asp-controller="Admin" asp-action="Invoice"><i class="icon fa fa-circle-o"></i> Invoice Page</a>
+                        <a class="treeview-item" asp-are="Admin" asp-controller="SanPhams" asp-action="Index"><i class="icon fa fa-circle-o"></i> Sản phẩm</a>
                     </li>
                     <li>
-                        <a class="treeview-item" asp-areas="Admin" asp-controller="Mail" asp-action="Index"><i class="icon fa fa-circle-o"></i> Mailbox</a>
+                        <a class="treeview-item" asp-are="Admin" asp-controller="HinhAnhs" asp-action="Index"><i class="icon fa fa-circle-o"></i>Hình ảnh</a>
                     </li>
                     <li>
                         <a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a>
