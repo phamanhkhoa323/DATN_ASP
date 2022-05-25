@@ -6,16 +6,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using DATN_ASP.Data;
 
 namespace DATN_ASP.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DATN_ASPContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DATN_ASPContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -42,11 +45,11 @@ namespace DATN_ASP.Controllers
         }
 
 
-        [Route("Shop")]
-        public IActionResult Shop()
+        [Route("SanPham")]
+        public IActionResult SanPham()
         {
-
-            return View();
+            var sp = _context.SanPhams.ToList();
+            return View(sp);
         }
 
         [Route("Single-product")]

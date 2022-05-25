@@ -79,7 +79,7 @@ namespace DATN_ASP.Areas.Admin.Controllers
                 {
                     //Xử lí
                     var filename = sanPham.Id.ToString() + Path.GetExtension(sanPham.ImageFile.FileName);
-                    var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "image");
+                    var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, "image","sanpham");
                     var filePath = Path.Combine(uploadPath, filename);
                     using (FileStream fs = System.IO.File.Create(filePath))
                     {
@@ -91,7 +91,6 @@ namespace DATN_ASP.Areas.Admin.Controllers
                     await _context.SaveChangesAsync();
                 }
                 return RedirectToAction(nameof(Index));
-
             }
 
             ViewData["DanhMucId"] = new SelectList(_context.DanhMucs, "Id", "Id", sanPham.DanhMucId);
