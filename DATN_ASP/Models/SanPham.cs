@@ -35,7 +35,6 @@ namespace DATN_ASP.Models
         [DisplayName("Tác giả")]
         public int TacGiaId { get; set; } 
         
-        
         public int NhaXuatBanId {get; set; }
         [DisplayName("Nhà xuất bản")]
         public NhaXuatBan NhaXuatBan { get; set; }
