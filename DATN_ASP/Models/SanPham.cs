@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 
 namespace DATN_ASP.Models
@@ -14,6 +16,9 @@ namespace DATN_ASP.Models
         public int Id { get; set; }
         [DisplayName("Ảnh đại diện")]
         public string AnhDaiDien { get; set; }
+
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
 
         public int HinhAnhId { get; set; }
         [DisplayName("Danh sách hình ảnh ")]

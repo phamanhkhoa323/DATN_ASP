@@ -65,58 +65,58 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AnhDaiDien)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HinhAnh.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaSP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TenSP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DonGia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SoLuong)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DanhMuc.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TacGiaId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NhaXuatBan.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayXuatBan)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MoTa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.KhuyenMai.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GiamGia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NgayLap)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TrangThai)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <img src="~/assets/image/ @Html.DisplayFor(modelItem => item.AnhDaiDien)" width="100" height="100s" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HinhAnh.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhMuc.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TacGiaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhaXuatBan.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayXuatBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhuyenMai.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiamGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayLap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
