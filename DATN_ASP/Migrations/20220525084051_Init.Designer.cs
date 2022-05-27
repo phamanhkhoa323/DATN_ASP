@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DATN_ASP.Migrations
 {
     [DbContext(typeof(DATN_ASPContext))]
-    [Migration("20220523165023_Init")]
+    [Migration("20220525084051_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -584,8 +584,8 @@ namespace DATN_ASP.Migrations
 
             modelBuilder.Entity("DATN_ASP.Models.TacGiaSanPham", b =>
                 {
-                    b.HasOne("DATN_ASP.Models.SanPham", null)
-                        .WithMany("TacGiaSanPhams")
+                    b.HasOne("DATN_ASP.Models.SanPham", "SanPham")
+                        .WithMany()
                         .HasForeignKey("SanPhamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -595,6 +595,8 @@ namespace DATN_ASP.Migrations
                         .HasForeignKey("TacGiaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("SanPham");
 
                     b.Navigation("TacGia");
                 });
@@ -639,8 +641,6 @@ namespace DATN_ASP.Migrations
                     b.Navigation("ChiTietHoaDons");
 
                     b.Navigation("GioHangs");
-
-                    b.Navigation("TacGiaSanPhams");
                 });
 
             modelBuilder.Entity("DATN_ASP.Models.TinTuc", b =>

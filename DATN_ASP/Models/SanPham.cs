@@ -39,7 +39,7 @@ namespace DATN_ASP.Models
         public DanhMuc DanhMuc { get; set; }
         [DisplayName("Tác giả")]
         public int TacGiaId { get; set; } 
-        
+
         public int NhaXuatBanId {get; set; }
         [DisplayName("Nhà xuất bản")]
         public NhaXuatBan NhaXuatBan { get; set; }
@@ -48,7 +48,6 @@ namespace DATN_ASP.Models
         public DateTime NgayXuatBan { get; set; }
         [DisplayName("Mô tả")]
         public string MoTa { get; set; }
-      
         public int KhuyenMaiId { get; set; }
         [DisplayName("Mã khuyến mãi")]
         public KhuyenMai KhuyenMai { get; set; }
@@ -60,10 +59,8 @@ namespace DATN_ASP.Models
         [DisplayName("Trạng thái")]
         [DefaultValue(true)]
         public bool TrangThai { get; set; } = true;
-
         public List<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public List<GioHang> GioHangs { get; set; }
-        public List<TacGiaSanPham> TacGiaSanPhams { get; set; }
         public List<BinhLuan> BinhLuans { get; set; }
     }
 }

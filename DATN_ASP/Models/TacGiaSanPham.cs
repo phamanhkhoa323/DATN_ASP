@@ -12,6 +12,7 @@ namespace DATN_ASP.Models
     {
         public int Id { get; set; }
         public int SanPhamId { get; set; }
+        public SanPham SanPham { get; set; }
         public int TacGiaId { get; set; }
         public TacGia TacGia { get; set; }
     }

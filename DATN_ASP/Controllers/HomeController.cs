@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using DATN_ASP.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DATN_ASP.Controllers
 {
@@ -23,7 +24,8 @@ namespace DATN_ASP.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var sp = _context.SanPhams.ToList();
+            return View(sp);
         }
 
         public IActionResult Privacy()
@@ -44,7 +46,6 @@ namespace DATN_ASP.Controllers
             return View();
         }
 
-
         [Route("SanPham")]
         public IActionResult SanPham()
         {
@@ -52,11 +53,16 @@ namespace DATN_ASP.Controllers
             return View(sp);
         }
 
-        [Route("Single-product")]
-        public IActionResult Single()
+        [Route("Detail")]
+        public async Task<IActionResult> Detail(int? id)
         {
-
-            return View();
+            var sp = await _context.SanPhams
+                .Include(s => s.DanhMuc)
+                .Include(s => s.HinhAnh)
+                .Include(s => s.KhuyenMai)
+                .Include(s => s.NhaXuatBan)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            return View(sp);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

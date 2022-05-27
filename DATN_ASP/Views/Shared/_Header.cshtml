@@ -7,9 +7,9 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                        <li><a asp-controller="Home" asp-action="Cart"><i class="fa fa-user"></i> My Cart</a></li>
+                        <li><a asp-controller="Home" asp-action="Cart"><i class="fa fa-user"></i> Giỏ hàng</a></li>
                         <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                        <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                        <li><a href="#"><i class="fa fa-user"></i> Đăng nhập</a></li>
                     </ul>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         </li>
 
                         <li class="dropdown dropdown-small">
-                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
+                            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">Ngôn ngữ :</span><span class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">French</a></li>
@@ -71,12 +71,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a asp-controller="Home" asp-action="Shop">Shop page</a></li>
-                    <li><a asp-controller="Home" asp-action="Single">Single product</a></li>
-                    <li><a asp-controller="Home" asp-action="Cart">Cart</a></li>
+                    <li class="active"><a asp-are="Home" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li><a asp-are="Home" asp-controller="Home" asp-action="SanPham">Sản phẩm</a></li>
+                    
+                    <li><a asp-controller="Home" asp-action="Cart">Giỏ hàng</a></li>
                     <li><a asp-controller="Home" asp-action="Checkout">Checkout</a></li>
-                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Danh mục</a></li>
                     <li><a href="#">Others</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>

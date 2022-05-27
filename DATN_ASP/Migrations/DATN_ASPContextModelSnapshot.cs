@@ -582,8 +582,8 @@ namespace DATN_ASP.Migrations
 
             modelBuilder.Entity("DATN_ASP.Models.TacGiaSanPham", b =>
                 {
-                    b.HasOne("DATN_ASP.Models.SanPham", null)
-                        .WithMany("TacGiaSanPhams")
+                    b.HasOne("DATN_ASP.Models.SanPham", "SanPham")
+                        .WithMany()
                         .HasForeignKey("SanPhamId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -593,6 +593,8 @@ namespace DATN_ASP.Migrations
                         .HasForeignKey("TacGiaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("SanPham");
 
                     b.Navigation("TacGia");
                 });
@@ -637,8 +639,6 @@ namespace DATN_ASP.Migrations
                     b.Navigation("ChiTietHoaDons");
 
                     b.Navigation("GioHangs");
-
-                    b.Navigation("TacGiaSanPhams");
                 });
 
             modelBuilder.Entity("DATN_ASP.Models.TinTuc", b =>
